@@ -1,0 +1,63 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	SETRES SINGLE MONITOR
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	Windows command line program to set display resolution / colour depth / refresh frequency
+	© 2010 Ian Sharpe (www.iansharpe.com)
+
+	This program is free software. You can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	any later version.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	The GNU General Public License (GPL) can be viewed at http://www.gnu.org/licenses/
+
+COMPATIBILITY
+	Windows 98, Windows 2000 & later
+
+SOURCE CODE
+	The C++ source file is included in the download package.
+
+VERSION HISTORY
+	30 April 2010		v2.3	:  Initial GPL3 open source release
+	Prior to v2.3				:  Closed source
+
+MULTIPLE DISPLAYS
+	SETRES SINGLE MONITOR works with the primary display only.
+	A closed-source	multi-monitor edition is available at www.iansharpe.com
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	COMMAND LINE USAGE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	SETRES hXXXX vXXXX [bXX] [fXX] [n]
+
+hXXXX = Horizontal size of screen in pixels          Not optional. 640 minimum
+vXXXX = Vertical size of screen in pixels            Not optional. 480 minimum
+  bXX = Bit (colour) depth such as 8, 16 24, 32      Optional
+  fXX = Refresh frequncy in Hertz, e.g. 60, 75, 85   Optional
+    n = No 'Press a key' prompt after error          Optional
+
+EXAMPLES
+	  SETRES h1024 v768               = Set screen to 1024 x 768 resolution
+	  SETRES h800 v600 b24            = Set screen to 800 x 600 resolution with
+                                        24-bit colour depth
+	  SETRES h1280 v1024 b32 f75      = 1280x1024 resolution, 32-bit colour,
+                                        75Hz refresh frequency                                         
+	  SETRES h1024 v768 n             = 1024x768 with no 'Press a key' prompt 
+                                        if an error occurs
+
+WARNING
+	SETRES does not check the capabilities of your hardware. Windows
+	is supposed to reject unsupported settings but do not rely on this.
+	If you specify unsupported settings, I WILL NOT ACCEPT RESPONSIBILITY
+	FOR THE CONSEQUENCES.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+END
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

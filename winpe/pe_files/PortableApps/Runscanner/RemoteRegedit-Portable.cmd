@@ -1,0 +1,1 @@
+X:\extra\PortableApps\Runscanner\RunScanner.exe /t 0 /sd /ac /m+ /y  regedit.exe

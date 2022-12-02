@@ -1,0 +1,177 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\MTCUVC]
+; http://winaero.com/blog/enable-old-volume-control-in-windows-10/
+"EnableMtcUvc"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer]
+"DisableEdgeDesktopShortcutCreation"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection]
+"AllowTelemetry"=dword:00000000
+"DiagTrackAuthorization"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection]
+"AllowTelemetry"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search]
+"AllowCortana"=dword:00000000
+"ExplainAllowCortana"=dword:00000000
+"DisableWebSearch"=dword:00000001
+"AllowCloudSearch"=dword:00000000
+"AllowSearchToUseLocation"=dword:00000000
+"ConnectedSearchUseWeb"=dword:00000000
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search]
+"DeviceHistoryEnabled"=dword:00000000
+"AllowSearchToUseLocation"=dword:00000000
+"BingSearchEnabled"=dword:00000000
+
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System]
+"PublishUserActivities"=dword:00000000
+
+;; ;disable communication with microsoft account servers
+;; ;FIXME: Does this break Teams or something?
+;; ;https://docs.microsoft.com/en-us/windows/configuration/manage-connections-from-windows-operating-system-components-to-microsoft-services
+;; [Registry_hklm_wlid]
+;; openkey [HKLM\SYSTEM\CurrentControlSet\Services\wlidsvc]
+;; set "Start"=dword:4
+
+
+;https://msdn.microsoft.com/en-us/library/dd405474(v=vs.85).aspx
+; https://www.windowsmanagementexperts.com/disabling-windows-10-consumer-experience/disabling-windows-10-consumer-experience.htm
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\SQMClient]
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\SQMClient\Windows]
+"CEIPEnable"=dword:00000000
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent]
+"DisableWindowsConsumerFeatures"=dword:00000001
+"DisableThirdPartySuggestions"=dword:00000001
+; https://www.tenforums.com/browsers-email/175385-20h2-browse-web-microsoft-edge-popup-when-first-logging.html
+"DisableHelpSticker"=dword:00000001
+
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\PushToInstall]
+"DisablePushToInstall"=dword:00000000
+
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\OOBE]
+"DisablePrivacyExperience"=dword:00000001
+
+;https://www.stigviewer.com/stig/windows_7/2012-08-22/finding/V-15704
+;https://www.windows-security.org/c60f66da12d91f4f0be57445a827e366/turn-off-handwriting-personalization-data-sharing
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\TabletPC]
+"PreventHandwritingDataSharing"=dword:00000001
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\HandwritingErrorReports]
+"PreventHandwritingErrorReports"=dword:00000001
+
+
+; https://translate.google.com/translate?sl=auto&tl=en&u=http://www-pc.uni-regensburg.de/systemsw/win10/settings.htm
+; https://www.stigviewer.com/stig/windows_7/2014-04-02/finding/V-21971
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AppCompat]
+"AITEnable"=dword:00000000
+"DisableUAR"=dword:00000001
+"DisableInventory"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo]
+"Enabled"=dword:00000000
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AdvertisingInfo]
+"DisabledByGroupPolicy"=dword:00000001
+
+
+[HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\PushNotifications]
+"NoTileApplicationNotification"=dword:00000001
+
+;;;; DISABLE ONEDRIVE - copied from OPSI config-win10
+;https://techjourney.net/disable-or-uninstall-onedrive-completely-in-windows-10/
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows]
+"DisableFileSyncNGSC"=dword:00000001
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Onedrive]
+"DisableLibrariesDefaultSaveToOneDrive"=dword:00000001
+"DisableFileSync"=dword:00000001
+"DisableFileSynciNGSC"=dword:00000001
+"DisableMeteredNetworkFileSync"=dword:00000000
+[HKEY_CLASSES_ROOT\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}]
+"System.IsPinnedToNameSpaceTree"=dword:00000000
+[HKEY_CLASSES_ROOT\WOW6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}]
+"System.IsPinnedToNameSpaceTree"=dword:00000000
+;;;; / DISABLE ONEDRIVE
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Maps]
+"AutoDownloadAndUpdateMapData"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System]
+"EnableSmartScreen"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting]
+"Disabled"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Internet Explorer]
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Internet Explorer\Safety]
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Internet Explorer\Safety\PrivacIE]
+"DisableLogging"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\FindMyDevice]
+"AllowFindMyDevice"=dword:00000000
+
+;; ; Disable the AppReadiness service that installs a lot of bloatware apps from MS store
+;; ; on first user login. Note that this includes important apps such as the Windows
+;; ; Settings app. These have to be installed manually.
+;; [HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\AppReadiness]
+;; "Start"=dword:00000004
+;; ; XX This currently breaks some Windows updates (e.g. KB5004237). Needs further investigation.
+
+; https://gist.github.com/carcheky/981fda4af8e5aac73d0ca8558947ffbb
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager]
+"FeatureManagementEnabled"=dword:00000000
+"OemPreInstalledAppsEnabled"=dword:00000000
+"PreInstalledAppsEnabled"=dword:00000000
+"RotatingLockScreenEnabled"=dword:00000000
+"RotatingLockScreenOverlayEnabled"=dword:00000000
+"SoftLandingEnabled"=dword:00000000
+"SystemPaneSuggestionsEnabled"=dword:00000000
+"SubscribedContentEnabled"=dword:00000000
+"ContentDeliveryAllowed"=dword:00000000
+"SilentInstalledAppsEnabled"=dword:00000000
+"PreInstalledAppsEverEnabled"=dword:00000000
+"RemediationRequired"=dword:00000000
+"SubscribedContent-338387Enabled"=dword:00000000
+"SubscribedContent-338388Enabled"=dword:00000000
+"SubscribedContent-338389Enabled"=dword:00000000
+"SubscribedContent-310093Enabled"=dword:00000000
+"SubscribedContent-338393Enabled"=dword:00000000
+"SubscribedContent-314563Enabled"=dword:00000000
+"SubscribedContent-353698Enabled"=dword:00000000
+"SubscribedContent-353694Enabled"=dword:00000000
+
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"ShowSyncProviderNotifications"=dword:00000000
+
+; https://gist.github.com/carcheky/981fda4af8e5aac73d0ca8558947ffbb
+[HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\CloudContent]
+"ConfigureWindowsSpotlight"=dword:00000002
+"IncludeEnterpriseSpotlight"=dword:00000000
+"DisableThirdPartySuggestions"=dword:00000001
+"DisableTailoredExperiencesWithDiagnosticData"=dword:00000001
+"DisableWindowsSpotlightFeatures"=dword:00000001
+"DisableWindowsSpotlightWindowsWelcomeExperience"=dword:00000001
+"DisableWindowsSpotlightOnActionCenter"=dword:00000001
+"DisableWindowsSpotlightOnSettings"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\SuggestedApps]
+"46928bounde.EclipseManager_a5h4egax66k6y"=dword:00000000
+"ActiproSoftwareLLC.562882FEEB491_24pqs290vpjk0"=dword:00000000
+"AdobeSystemsIncorporated.AdobePhotoshopExpress_ynb6jyjzte8ga"=dword:00000000
+"D5EA27B7.Duolingo-LearnLanguagesforFree_yx6k7tf7xvsea"=dword:00000000
+"Flipboard.Flipboard_3f5azkryzdbc4"=dword:00000000
+"Microsoft.BingNews_8wekyb3d8bbwe"=dword:00000000
+"Microsoft.BingWeather_8wekyb3d8bbwe"=dword:00000000
+"Microsoft.FreshPaint_8wekyb3d8bbwe"=dword:00000000
+"Microsoft.Getstarted_8wekyb3d8bbwe"=dword:00000000
+"Microsoft.NetworkSpeedTest_8wekyb3d8bbwe"=dword:00000000
+"Microsoft.Office.Sway_8wekyb3d8bbwe"=dword:00000000
+"Microsoft.RemoteDesktop_8wekyb3d8bbwe"=dword:00000000
+"Microsoft.WindowsAlarms_8wekyb3d8bbwe"=dword:00000000
+"Microsoft.WindowsSoundRecorder_8wekyb3d8bbwe"=dword:00000000
+"40579FactionSoftware.Colorist_ktsqrfenxtjhw"=dword:00000000
+
