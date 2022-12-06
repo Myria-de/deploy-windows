@@ -23,9 +23,9 @@ EFIPART="/dev/nbd1p2"
 # Die NTFS-Partition in der VHD-Datei
 NTFSPART="/dev/nbd1p1"
 # Name der Backup-Datei (NTFS-Partition)
-BACKUPWIM="/home/te/WIM/Win.wim"
-# Name der Backup-Datei (EFI-Partition)
-BACKUPEFI="/home/te/WIM/efi.tar.bz2"
+BACKUPWIM="[Pfad-zur-WIM-Datei]"
+# Name der Backup-Datei (EFI-Partition, Optional)
+BACKUPEFI="[Pfad-zum-tr.gz-Backup-der-Efi-Partition]"
 # Der Backup-Index
 # Bei einem inkrementellen Backup mit wimappend
 # die höchste Index-Nummer eintragen
