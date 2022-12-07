@@ -95,7 +95,7 @@
                 <SynchronousCommand wcm:action="add">
                     <Order>1</Order>
                     <!-- Gewünschten Benutzernamen hier eintragen -->
-                    <CommandLine>net user "te" /logonpasswordchg:yes</CommandLine>
+                    <CommandLine>net user "User" /logonpasswordchg:yes</CommandLine>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
                     <Order>2</Order>
