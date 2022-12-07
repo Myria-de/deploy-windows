@@ -79,9 +79,10 @@
             </OOBE>
             <UserAccounts>
                 <LocalAccounts>
-                    <LocalAccount wcm:action="add">
-                        <Name>te</Name>
-                        <DisplayName>te</DisplayName>
+                    <LocalAccount wcm:action="add">                        
+                    <!-- Gewünschten Benutzernamen hier eintragen -->
+                        <Name>User</Name>
+                        <DisplayName>User</DisplayName>
                         <Group>Administrators;Power Users</Group>
                         <Password>
                             <Value>UABhAHMAcwB3AG8AcgBkAA==</Value>
@@ -93,6 +94,7 @@
             <FirstLogonCommands>
                 <SynchronousCommand wcm:action="add">
                     <Order>1</Order>
+                    <!-- Gewünschten Benutzernamen hier eintragen -->
                     <CommandLine>net user "te" /logonpasswordchg:yes</CommandLine>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
