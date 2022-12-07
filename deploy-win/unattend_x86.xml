@@ -45,7 +45,8 @@
       <UserAccounts>
         <LocalAccounts>
           <LocalAccount wcm:action="add">
-            <Name>te</Name>
+          <!-- Gewünschten Benutzernamen hier eintragen -->
+            <Name>User</Name>
             <Group>Administrators;Power Users</Group>
             <Password>
               <PlainText>false</PlainText>
@@ -61,7 +62,8 @@
         </Password>
         <Enabled>true</Enabled>
         <LogonCount>1</LogonCount>
-        <Username>te</Username>
+        <!-- Gewünschten Benutzernamen hier eintragen -->
+        <Username>User</Username>
       </AutoLogon>
   <OOBE>
    <HideEULAPage>true</HideEULAPage>
@@ -78,7 +80,8 @@
        <!-- Zur Passwort-Änderung auffordern -->
        <!-- <SynchronousCommand wcm:action="add">
           <Order>1</Order>
-          <CommandLine>net user "te" /logonpasswordchg:yes</CommandLine>
+          <!-- Gewünschten Benutzernamen hier eintragen -->
+          <CommandLine>net user "User" /logonpasswordchg:yes</CommandLine>
         </SynchronousCommand> -->
         
         <SynchronousCommand wcm:action="add">
