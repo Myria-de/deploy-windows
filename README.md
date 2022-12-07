@@ -1,7 +1,7 @@
 # deploy-windows
 Scripts to deploy a Windows installation from Linux
 
-# Credits
+## Credits
 * Die Scripte nutzen "Deploy Windows 10 from Linux" (https://codeberg.org/regnarg/deploy-win10-from-linux)
 * Create a windows system from scratch using Linux (forum thread at reboot.pro
 ): http://reboot.pro/topic/20468-create-a-windows-system-from-scratch-using-linux/] --     that discusses attempts to achieve exactly this
