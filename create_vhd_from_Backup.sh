@@ -25,7 +25,7 @@ NTFSPART="/dev/nbd1p1"
 # Name der Backup-Datei (NTFS-Partition)
 BACKUPWIM="[Pfad-zur-WIM-Datei]"
 # Name der Backup-Datei (EFI-Partition, Optional)
-BACKUPEFI="[Pfad-zum-tr.gz-Backup-der-Efi-Partition]"
+BACKUPEFI="[Pfad-zum-tar.gz-Backup-der-Efi-Partition]"
 # Der Backup-Index
 # Bei einem inkrementellen Backup mit wimappend
 # die höchste Index-Nummer eintragen
