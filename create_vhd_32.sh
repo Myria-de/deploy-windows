@@ -200,8 +200,17 @@ else
 VBoxManage modifyvm "$VMNAME" --nic1=$NICTYPE --bridge-adapter1=$NICDEVICE
 fi
 
+echo -e "- ${GREEN}Datenaustausch konfigurieren (Clipboard, DragandDrop.${NC}"
 VBoxManage modifyvm "$VMNAME" --clipboard=bidirectional
 VBoxManage modifyvm "$VMNAME" --draganddrop=bidirectional
+
+if [ "$UEFI" == "--efi" ]; then
+echo -e "- ${GREEN}EFI aktivieren.${NC}"
+VBoxManage modifyvm "$VMNAME" --firmware efi
+else
+echo -e "- ${GREEN}BIOS aktivieren.${NC}"
+VBoxManage modifyvm "$VMNAME" --firmware bios
+fi
 
 echo -e "${GREEN}Zugriffrechte für den Benutzer setzen${NC}"
 sudo bash -c "chown -R \"\$SUDO_UID:\$SUDO_GID\" $VMDIR/$VMNAME"
