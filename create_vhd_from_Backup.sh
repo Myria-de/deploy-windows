@@ -42,6 +42,16 @@ NC='\033[0m'
 ##########################################
 ###      Das Script startet hier       ###
 ##########################################
+check-state() {
+if ! test $? -eq 0
+then
+	if ! [ -z "$1" ]
+	 then
+	 echo -e "${RED}Fehler: $1${NC}"
+	 fi
+	 exit 1
+fi
+}
 
 if [ ! -e $BACKUPWIM ]
 then
