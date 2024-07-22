@@ -10,7 +10,7 @@ WORKDIR=`pwd`
 # Wenn Sie das Script mehrfach ausführen,
 # entfernen Sie die VHD-Datei in Virtualbox
 # über "Datei -> Werkzeuge -> Virtuelle Medien"
-# Wählen Sie die VHD-Datei und klicken Sie auf "Freigeben" und 
+# Wählen Sie die VHD-Datei und klicken Sie auf "Freigeben" und
 # dann auf "Entfernen".
 # Oder Sie geben einen anderen Dateinamen an.
 IMAGENAME=image_win11_x64.vhd
@@ -25,30 +25,34 @@ IMAGESIZE=20000
 VMNAME=Win11_x64
 # Typ der VM
 # VBoxManage list ostypes liefert eine Liste der Typen
-# z.B. Windows10 (32-Bit) Windows10_64 Windows11_64
+# z.B. "Windows10" (32-Bit) "Windows10_64" "Windows11_64" "Windows7_64" "Windows7" (32 Bit)
 OSTYPE=Windows11_64
 # EFI-Installation (Standard bei Windows 11)
 UEFI=--efi
 # BIOS-Installation
 # UEFI=
 # Der Image-Index in der Datei install.wim
-# Ermitteln mit wiminfo
+# ISO-Datei in das Dateisystem einhängen
+# und Index mit
+# wiminfo install.wim
+# ermitteln
 IMGIDX="--image-name=5"
 # Virtualbox-Gasterweiterungen automatisch installieren
 PPROC="--postproc=$WORKDIR/deploy-win/postproc/guest-additions/setup.sh"
 # Automatisch Installation durchführen
 UNATT="--unattend=$WORKDIR/deploy-win/unattend_x64.xml"
+# UNATT= für eine manuelle Installatin verwenden
 # Der Ordner, in dem die virtuelle Maschine erstellt wird
 VMDIR=$WORKDIR/VMs
 # Der Pfad und Name zur ISO-Datei
 # für die Windows-Installation
-ISOPATH=$WORKDIR/Win11_22H2_German_x64v1.iso 
+ISOPATH=$WORKDIR/Win10_22H2_German_x64v1.iso
 # Netwerkadapter konfigurieren
 # Bezeichnung des Netzwerkadapters siehe ip a
 NICDEVICE=enp0s31f6
 NICTYPE=bridged
 # oder für NAT
-# NICDEVICE= 
+# NICDEVICE=
 # NICTYPE=nat
 #
 # Das Gerät für qemu-nbd
@@ -182,14 +186,15 @@ VBoxManage createvm --name "$VMNAME" --ostype "$OSTYPE" --register --basefolder 
 check-state "VBoxManage createvm: Fehler $?"
 
 echo -e "- ${GREEN}$IMAGEPATH für die VM konfigurieren.${NC}"
-VBoxManage storageattach "$VMNAME" --storagectl "SATA" --port 0 --device 0 --type hdd --medium "$IMAGEPATH" 
+VBoxManage storageattach "$VMNAME" --storagectl "SATA" --port 0 --device 0 --type hdd --medium "$IMAGEPATH"
 
 echo -e "- ${GREEN}Virtuelles DVD-Laufwerk erstellen.${NC}"
-
 VBoxManage storageattach "$VMNAME" --storagectl "SATA" --port 1 --device 0 --type dvddrive --medium emptydrive
 
-echo -e "- ${GREEN}ISO der Gasterweiterungen einbinden.${NC}"
-VBoxManage storageattach "$VMNAME" --storagectl "SATA" --port 1 --device 0 --type dvddrive --medium additions
+if [ ! -z "$PPROC" ];then
+ echo -e "- ${GREEN}ISO der Gasterweiterungen einbinden.${NC}"
+ VBoxManage storageattach "$VMNAME" --storagectl "SATA" --port 1 --device 0 --type dvddrive --medium additions
+fi
 
 echo -e "- ${GREEN}Netzwerkadapter konfigurieren.${NC}"
 if [ "$NICTYPE" == "nat" ]; then
@@ -212,4 +217,3 @@ fi
 echo -e "${GREEN}Zugriffrechte für den Benutzer setzen${NC}"
 sudo bash -c "chown -R \"\$SUDO_UID:\$SUDO_GID\" $VMDIR/$VMNAME"
 echo -e "${GREEN}Windows-Installation beendet.${NC}"
-
