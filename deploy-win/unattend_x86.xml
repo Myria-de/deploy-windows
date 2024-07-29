@@ -78,11 +78,11 @@
             
         <FirstLogonCommands>
        <!-- Zur Passwort-Änderung auffordern -->
-       <!-- <SynchronousCommand wcm:action="add">
-          <Order>1</Order>
-          <!-- Gewünschten Benutzernamen hier eintragen -->
+      <!-- Gewünschten Benutzernamen hier eintragen -->
+      <SynchronousCommand wcm:action="add">
+          <Order>1</Order>          
           <CommandLine>net user "User" /logonpasswordchg:yes</CommandLine>
-        </SynchronousCommand> -->
+        </SynchronousCommand>
         
         <SynchronousCommand wcm:action="add">
           <Order>1</Order>
